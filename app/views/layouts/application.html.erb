@@ -11,6 +11,45 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+
+      <nav class="nav">
+        <button class="btn-mobile" >
+          <span class="hamburger"></span>
+        </button>
+
+        <ul class="menu-items">
+        <% if @current_user&.admin? %>
+          <li><%= link_to "Articles", articles_path %></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Roles", roles_path %></li>
+          <li><a href="">About</a></li>
+        <% end %>
+        </ul>
+      </nav>
+
+      <a id="brand" href="">Logo</a>
+
+      <div>
+      <p class="navbar-text float-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path%> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </p>
+      </div>
+    </header>
+  
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
