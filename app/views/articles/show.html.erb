@@ -1,0 +1,14 @@
+<p>
+  <%= @article.title %>
+</p>
+
+<p>
+  <%= @article.post_area %>
+</p>
+
+<p>
+  <%= @article.user.name %>
+</p>
+
+<% if can? :update, @article %> <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-sm btn-outline-primary' %><% end %>
+<%= link_to 'Back', articles_path, class: 'btn btn-sm btn-outline-primary'%>

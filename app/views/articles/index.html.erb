@@ -1,0 +1,29 @@
+<div class="painel">
+  <h2>
+    <span>Articles</span>
+  </h2>
+
+  <% if can? :create, Article %>
+    <%= link_to 'New Article', new_article_path, :class => "btn-default" %>
+  <% end %>
+</div>
+
+<% @articles.each do |article| %>
+  <%= link_to article do %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= article.title%></h5>
+        <p class="card-text"><%= article.post_area%></p>
+      </div>
+      <div class="card-footer">
+        <% if can? :update, article %>
+          <%= link_to 'Edit', edit_article_path(article), :class => "btn-default btn-success" %>
+        <% end %>
+
+        <% if can? :destroy, article %>
+          <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
