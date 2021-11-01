@@ -12,16 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "Title" %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.rich_text_area :body, placeholder: "Write something..." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class: 'btn-default btn-success' %>
   </div>
 <% end %>
