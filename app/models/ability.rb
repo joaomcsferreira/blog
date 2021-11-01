@@ -12,9 +12,7 @@ class Ability
     elsif user.author?
       can :read, Article
       can :create, Article
-      can :update, Article do |article|
-        article.try(user) == user
-      end
+      can :update, Article, user_id: user.id
       can :destroy, Article do |article|
         article.try(:user) == user
       end
