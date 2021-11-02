@@ -14,3 +14,154 @@
  *= require_self
  *= require actiontext
  */
+
+
+:root {
+    --color-link-secundary: #565E68;
+    --color-text-dark: #212529;
+    --color-text-light: #fff;
+    --color-text-grey: #e5e5e5;
+    --color-text-grey-bold: #70757D;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-font-playfair: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--bs-font-sans-serif);
+}
+
+a, ul, li {
+    list-style: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .7em 0;
+    border-bottom: 1px solid var(--color-text-grey);
+}
+
+.link-secondary {
+    color: var(--color-link-secundary);
+}
+
+.link-secondary:hover {
+    text-decoration: none;
+}
+
+.header-brand {
+    color: var(--color-text-dark);
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.header-menu-items {
+    display: flex;
+    gap: 5px;
+}
+
+/*
+ * Utilitarios
+ */
+
+.font-playfair {
+    font-family: var(--bs-font-playfair);
+}
+
+.right {
+    text-align: end;
+}
+
+.text-white {
+    color: var(--color-text-light);
+}
+
+.btn {
+    text-decoration: none;
+    padding: .6em;
+    border-radius: 5px;
+}
+
+.btn-sm {
+    font-size: 0.8em;
+    padding: .1em .5em;
+}
+
+.btn-outline-secondary {
+    border: 1px solid var(--color-link-secundary);
+    color: var(--color-link-secundary);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--color-link-secundary);
+    color: var(--color-text-light);
+}
+
+.btn-mobile {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .btn-mobile {
+        display: block;
+        border: none;
+        background: none;
+    }
+
+    .header-menu-items {
+        display: block;
+        position: absolute;
+        width: 80%;
+        padding: 5px 0;
+        top: 73px;
+        background-color: var(--color-text-light);
+        height: 0;
+        transition: .6s;
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    .nav.active .header-menu-items {
+        height: calc(100vh - 70px);
+        visibility: visible;
+    }
+
+    .hamburger {
+        border-top: 2px solid black;
+        width: 20px;
+    }
+
+    .hamburger::after, .hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    .nav.active .hamburger {
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .nav.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}

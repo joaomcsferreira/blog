@@ -10,37 +10,43 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
     <header class="header">
-
-      <nav class="nav">
-        <button class="btn-mobile" >
-          <span class="hamburger"></span>
-        </button>
-
-        <ul class="menu-items">
-        <% if @current_user&.admin? %>
-          <li><%= link_to "Articles", articles_path %></li>
-          <li><%= link_to "Users", users_path %></li>
-          <li><%= link_to "Roles", roles_path %></li>
-          <li><a href="">About</a></li>
-        <% end %>
-        </ul>
-      </nav>
-
-      <a id="brand" href="">Logo</a>
+      <% if @current_user&.admin? %>
+        <div class="nav">
+            <button class="btn-mobile" >
+              <span class="hamburger"></span>
+            </button>
+            
+            <ul class="header-menu-items">
+              <li><%= link_to "Articles", articles_path, :class => "link-secondary" %></li>
+              <li><%= link_to "Users", users_path, :class => "link-secondary" %></li>
+              <li><%= link_to "Roles", roles_path, :class => "link-secondary" %></li>
+            </ul>
+        </div>
+      <% end %>
 
       <div>
-      <p class="navbar-text float-right">
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path%> |
-          <%= link_to "Login", new_user_session_path %>
-        <% end %>
-      </p>
+        <a class="header-brand font-playfair" href="">Large</a>
+      </div>
+
+      <div class="right">
+          <% if user_signed_in? %>
+            <div>
+              <%= show_svg('profile.svg') %>
+              <strong><%= current_user.name %></strong>
+            </div>
+
+            <div>
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link-secondary btn btn-sm btn-outline-secondary" %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to "Sign up", new_user_registration_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %> |
+              <%= link_to "Login", new_user_session_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %>
+            </div>
+          <% end %>
       </div>
     </header>
   
@@ -51,5 +57,7 @@
     <main>
       <%= yield %>
     </main>
+
+    <%= javascript_pack_tag 'toggle_menu' %>
   </body>
 </html>
