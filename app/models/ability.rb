@@ -13,6 +13,7 @@ class Ability
       can :read, Article
       can :create, Article
       can :update, Article, user_id: user.id
+      can :destroy, Comment, user_id: user.id
       can :destroy, Article do |article|
         article.try(:user) == user
       end

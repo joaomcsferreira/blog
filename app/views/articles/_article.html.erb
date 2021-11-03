@@ -1,16 +1,16 @@
 <div class="card">
+    <h3 class="card-title main-title"><%= article.title %></h3>
     <div class="card-body">
-        <h3 class="card-title main-title"><%= "#{article.title}" %></h3>
         <p class="card-text"><%= article.body.to_plain_text.truncate(300) %></p>
-        <p><%= link_to 'Continue reading ...', article, class: '' %></p>
+        <p><%= link_to 'Continue reading ...', article, class: 'link-secondary' %></p>
     </div>
     <div class="card-footer">
         <% if can? :update, article %>
-            <%= link_to 'Edit', edit_article_path(article), :class => "btn-default btn-primary" %>
+            <%= link_to 'Edit', edit_article_path(article), :class => "btn-default btn-sm btn-primary" %>
         <% end %>
 
         <% if can? :destroy, article %>
-            <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-danger" %>
+            <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-sm btn-danger" %>
         <% end %>
     </div>
 </div>

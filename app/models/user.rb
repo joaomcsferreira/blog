@@ -5,9 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   belongs_to :role, optional: true
-  has_many :items, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
   validates :name, presence: true
   before_save :assign_role
+
 
   def assign_role 
     self.role = Role.find_by name: 'Author' if role.nil?

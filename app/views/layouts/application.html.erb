@@ -27,7 +27,7 @@
       <% end %>
 
       <div>
-        <a class="header-brand font-playfair" href="">Large</a>
+        <a class="header-brand font-playfair" href="/">Large</a>
       </div>
 
       <div class="right">
@@ -38,13 +38,13 @@
             </div>
 
             <div>
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link-secondary btn btn-sm btn-outline-secondary" %>
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => "link-secondary btn-default btn-sm btn-outline-secondary" %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "link-secondary btn-default btn-sm btn-outline-secondary" %>
             </div>
           <% else %>
             <div>
-              <%= link_to "Sign up", new_user_registration_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %> |
-              <%= link_to "Login", new_user_session_path, :class => "link-secondary btn btn-sm btn-outline-secondary" %>
+              <%= link_to "Sign up", new_user_registration_path, :class => "link-secondary btn-default btn-sm btn-outline-secondary" %> |
+              <%= link_to "Login", new_user_session_path, :class => "link-secondary btn-default btn-sm btn-outline-secondary" %>
             </div>
           <% end %>
       </div>
