@@ -17,3 +17,6 @@
 
 <% if can? :update, @article %> <%= link_to 'Edit', edit_article_path(@article), class: 'btn-default btn-primary' %><% end %>
 <%= link_to 'Back', articles_path, class: 'btn-default'%>
+
+<%= render @article.comments%>
+<%= render 'comments/form' %>

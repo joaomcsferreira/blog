@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title"><%= comment.created_at %></h3>
+        <p><%= comment.user.email %></p>
+        <p class="card-text"><%= comment.body %></p>
+    </div>
+
+    <div>
+        <% if can? :destroy, comment %>
+            <%= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-danger" %>
+        <% end %>
+    </div>
+</div>

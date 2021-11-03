@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: %i[create destroy]  
+  end
   resources :roles
 
   root to: 'articles#index'

@@ -1,0 +1,10 @@
+<h2>Add a Comment: </h2>
+<%= form_with model: [@article, @comment] do |form| %>
+  <div class="field">
+    <%= form.rich_text_area :body, placeholder: "Write something..." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil, class: 'btn-default btn-success' %>
+  </div>
+<% end %>
