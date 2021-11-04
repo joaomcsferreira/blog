@@ -1,0 +1,11 @@
+<div class="position-sticky">
+  <h4 class="main-title">Archives</h4>
+  <ol class="">
+    <% @archives.each do |month_year, count| %>
+      <li>
+        <%= link_to "#{month_year} (#{count})", articles_path(month_year: month_year),
+            class: "link-secondary #{'filter-active' if month_year == params[:month_year]}" %>
+      </li>
+    <% end %>
+  </ol>
+</div>

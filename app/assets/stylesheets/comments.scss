@@ -1,3 +1,24 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.card-comment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-text-grey);
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.card-email {
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.card-text {
+    border-top: 1px solid var(--color-text-grey);
+    padding-top: 5px;
+}
+
+.comment-field {
+    margin: 10px 0;
+}

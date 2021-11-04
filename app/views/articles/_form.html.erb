@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_field :title, placeholder: "Title" %>
+  <div class="article-field">
+    <%= form.text_field :title, placeholder: "Title", :class => "login-input" %>
   </div>
 
-  <div class="field">
+  <div class="article-field">
     <%= form.rich_text_area :body, placeholder: "Write something..." %>
   </div>
 
-  <div class="actions">
+  <div>
     <%= form.submit nil, class: 'btn-default btn-success' %>
+    <%= link_to 'Back', articles_path, :class => 'btn-default' %>
   </div>
 <% end %>

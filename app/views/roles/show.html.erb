@@ -1,12 +1,14 @@
-<p>
-  <strong>Name:</strong>
-  <%= @role.name %>
-</p>
+<div class="card">
+  <p>
+    <strong>Name:</strong>
+    <%= @role.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @role.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @role.description %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_role_path(@role), :class => 'btn-default btn-primary' %> |
 <%= link_to 'Back', roles_path, :class => 'btn-default' %>

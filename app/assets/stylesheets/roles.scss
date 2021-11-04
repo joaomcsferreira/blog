@@ -1,3 +1,13 @@
 // Place all the styles related to the roles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card {
+    border: 1px solid var(--color-text-grey);
+    margin: 10px 0;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    border-radius: 5px;
+}

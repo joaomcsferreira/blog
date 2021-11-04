@@ -24,6 +24,7 @@
     --color-text-dark: #212529;
     --color-text-light: #fff;
     --color-text-grey: #e5e5e5;
+    --color-background-grey: #F9F9F9;
     --color-text-grey-bold: #70757D;
     --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -36,12 +37,17 @@
     font-family: var(--bs-font-sans-serif);
 }
 
+body, html {
+    height: 100%;
+}
+
 a, ul, li {
     list-style: none;
 }
 
 .container {
     width: 80%;
+    min-height: 75%;
     margin: 0 auto;
 }
 
@@ -96,6 +102,7 @@ a, ul, li {
     color: var(--color-text-dark);
     border: 1px solid var(--color-text-dark);
     font-weight: bold;
+    font-size: 1em;
 }
 
 .btn-sm {
@@ -106,6 +113,10 @@ a, ul, li {
 .btn-lg {
     font-size: 1.2em;
     padding: 0.7em 1.2em;
+}
+
+.btn-block {
+    width: 100%;
 }
 
 .btn-outline-secondary {
@@ -121,6 +132,7 @@ a, ul, li {
 .btn-danger {
     color: var(--color-danger);
     border: 1px solid var(--color-danger);
+    background: none;
 }
 
 .btn-danger:hover {
@@ -131,6 +143,7 @@ a, ul, li {
 .btn-success {
     color: var(--color-success);
     border: 1px solid var(--color-success);
+    background: none;
 }
 
 .btn-success:hover {
@@ -141,6 +154,7 @@ a, ul, li {
 .btn-primary {
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
+    background: none;
 }
 
 .btn-primary:hover {
@@ -150,6 +164,78 @@ a, ul, li {
 
 .btn-mobile {
     display: none;
+}
+
+.footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--color-background-grey);
+    border-top: 1px solid var(--color-text-grey);
+    margin-top: 20px;
+}
+
+/*
+ * Devise css
+ */
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: -20px;
+}
+
+.login-field {
+    flex: 1 1 200px;
+    padding: 50px;
+    margin: auto;
+    text-align: center;
+}
+
+.login-side {
+    flex: 1 1 300px;
+    background: var(--color-primary);
+    width: 100vw;
+    min-height: 80vh;
+}
+
+.login-form {
+    padding: 70px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text-grey);
+    margin-bottom: 10px;
+}
+
+.login-input {
+    border-radius:4px;
+    background: var(--color-text-light);
+    border: 1px solid var(--color-text-grey);
+    padding: 8px;
+    width: calc(100% - 16px);
+    font-size:1em;
+    margin-top: 5px;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.d-flex {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.table, th, td {
+    border: 1px solid var(--color-text-grey);
+    padding: 5px;
+}
+
+.table {
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
 @media (max-width: 700px) {

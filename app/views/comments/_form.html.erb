@@ -1,6 +1,6 @@
-<h2>Add a Comment: </h2>
+<h3>Add a Comment: </h3>
 <%= form_with model: [@article, @comment] do |form| %>
-  <div class="field">
+  <div class="comment-field">
     <%= form.rich_text_area :body, placeholder: "Write something..." %>
   </div>
 

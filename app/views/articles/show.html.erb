@@ -1,8 +1,6 @@
-<h1 class="text-center">
+<h1 class="text-center main-title">
   <%= @article.title %>
 </h1>
-
-<hr>
 
 <div class="text-body">
   <p>
@@ -10,13 +8,20 @@
   </p>
 </div>
 
-<p class="text-right h6">
-  <strong>Written by:</strong>
-  <%= @article.user.name %>
-</p>
+<div class="text-footer">
+  <p class="text-author">
+    <strong>Written by:</strong>
+    <%= @article.user.name %>
+  </p>
 
-<% if can? :update, @article %> <%= link_to 'Edit', edit_article_path(@article), class: 'btn-default btn-primary' %><% end %>
-<%= link_to 'Back', articles_path, class: 'btn-default'%>
+  <% if can? :update, @article %> <%= link_to 'Edit', edit_article_path(@article), class: 'btn-default btn-primary' %><% end %>
+  <%= link_to 'Back', articles_path, class: 'btn-default'%>
+</div>
 
-<%= render @article.comments%>
-<%= render 'comments/form' %>
+<div>
+
+  <p class="main-title">Comments: </p>
+
+  <%= render @article.comments%>
+  <%= render 'comments/form' %>
+</div>

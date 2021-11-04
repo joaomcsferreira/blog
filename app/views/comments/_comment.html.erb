@@ -1,13 +1,13 @@
-<div class="card">
-    <div class="card-body">
-        <h3 class="card-title"><%= comment.created_at %></h3>
-        <p><%= comment.user.email %></p>
+<div class="card-comment">
+    <div class="">
+        <h4><%= month_day_comma_year(comment.created_at) %></h4>
+        <p class="card-email"><%= comment.user.email %></p>
         <p class="card-text"><%= comment.body %></p>
     </div>
 
     <div>
         <% if can? :destroy, comment %>
-            <%= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-danger" %>
+            <%= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn-default btn-sm btn-danger" %>
         <% end %>
     </div>
 </div>

@@ -4,4 +4,8 @@ module ApplicationHelper
           raw file.read
         end
     end
+
+    def month_day_comma_year(datetime)
+      datetime.strftime('%B %e, %Y')
+    end
 end

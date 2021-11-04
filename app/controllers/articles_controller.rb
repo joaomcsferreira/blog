@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     @articles = Article.all
+
+    @archives = Article.group_by_month(:created_at, format: '%B %Y').count
   end
 
   # GET /articles/1 or /articles/1.json

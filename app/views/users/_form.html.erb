@@ -1,36 +1,37 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="card">
+  <%= form_with(model: user) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.text_field :name, placeholder: "Name", :class => "login-input" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= collection_select(:user, :role_id, @roles, :id, :name, { prompt: true }, class: "login-input") %>
+    </div>
 
-  <div class="field">
-    <%= collection_select(:user, :role_id, @roles, :id, :name, { prompt: true }) %>
-  </div>
+    <div class="field">
+      <%= form.text_field :email, placeholder: "Email", :class => "login-input" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </div>
+    <div class="field">
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%= form.password_field :password, placeholder: "Password", :class => "login-input" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %><br>
-    <%= form.password_field :password, placeholder: "Leave blank if unchanged" %>
-  </div>
+    <div class="actions">
+      <%= form.submit nil, :class => 'btn-default btn-success' %>
+    </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit nil, :class => 'btn-default btn-success' %>
-  </div>
 <% end %>
