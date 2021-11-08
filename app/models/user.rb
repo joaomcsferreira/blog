@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   validates :name, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :password, presence: true
   before_save :assign_role
 
 

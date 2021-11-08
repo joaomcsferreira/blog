@@ -14,9 +14,7 @@ class Ability
       can :create, Article
       can :update, Article, user_id: user.id
       can :destroy, Comment, user_id: user.id
-      can :destroy, Article do |article|
-        article.try(:user) == user
-      end
+      can :destroy, Article, user_id: user.id
     end
   end
 end
