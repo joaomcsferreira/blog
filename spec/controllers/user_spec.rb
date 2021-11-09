@@ -4,13 +4,20 @@ RSpec.describe UsersController, type: :controller do
 
     let(:user) { create :user }
     let(:user_2) { create :user }
+    
     let(:admin) { create :admin }
 
-    describe "GET /users" do
-        it 'get index' do
-            get :index
-      
-            expect(response.status).to eq(302)
+    describe "GET /users" do 
+        before do
+            sign_in user
+        end
+
+        describe "index" do
+
+            it 'get index' do
+                get :index
+                expect(response.status).to eq(302)
+            end
         end
 
         it 'get show' do
@@ -28,7 +35,7 @@ RSpec.describe UsersController, type: :controller do
         it 'get new' do
             get :new
 
-            expect(response.status).to eq(302)
+            expect(response).to have_http_status(302)
         end    
     end
 
