@@ -16,4 +16,12 @@ FactoryBot.define do
     password_confirmation { password }
     role { Role.create({ name: 'Admin', description: 'Can perform any CRUD operation on any resource' }) }
   end
+
+  factory :leader_writer, class: 'user' do
+    email { Faker::Internet.email }
+    name { Faker::Name.name }
+    password { 'aaaaaaaa' }
+    password_confirmation { password }
+    role { Role.create({ name: 'Leader-writer', description: 'Can read articles and edit any article' }) }
+  end
 end

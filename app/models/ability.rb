@@ -9,6 +9,7 @@ class Ability
     elsif user.leader_writer?
       can :read, Article
       can :update, Article
+      can :destroy, Comment, user_id: user.id
     elsif user.author?
       can :read, Article
       can :create, Article

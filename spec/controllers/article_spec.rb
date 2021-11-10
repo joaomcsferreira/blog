@@ -36,6 +36,14 @@ RSpec.describe ArticlesController, type: :controller do
                 get :index
                 expect(response).to render_template("index")
             end
+
+            it 'render raise error' do
+                expect{ show_svg('profile.svg') }.to raise_error    
+            end
+
+            it 'render regex datetime' do
+                expect{ month_day_comma_year(DateTime.now) }.to_not raise_error
+            end
         end
 
         describe "show" do
@@ -135,7 +143,7 @@ RSpec.describe ArticlesController, type: :controller do
             expect(Article.first.title).to eq("New title")
         end
 
-        it 'articles iguais' do
+        it 'update with invalid params' do
             sign_in user
             put :update, params: { :id => article.id, article: { "title" => "" } }
 
