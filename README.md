@@ -1,24 +1,61 @@
-# README
+# BLOG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Building a blog using Ruby on Rails 6 in MVC pattern.
 
-Things you may want to cover:
+<table>
+  <tr>
+    <td>Ruby version</td>
+    <td>
+      3.0.2
+    </td>
+  </tr>
+  <tr>
+    <td>Rails version</td>
+    <td>
+      6.1.4.1
+    </td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>
+      PostgreSQLs
+    </td>
+  </tr>
+</table>
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+```bash
+# clone the project
+git clone https://github.com/Joao-MCF/blog.git
 
-* Configuration
+# enter the cloned directory
+cd blog
 
-* Database creation
+# install Ruby on Rails dependencies
+bundle install
 
-* Database initialization
+# install Node dependencies
+yarn install
 
-* How to run the test suite
+# create the development and test databases and the tables
+rails db:create && rails db:migrate
+rails db:migrate RAILS_ENV=test
 
-* Services (job queues, cache servers, search engines, etc.)
+# run the project
+rails s
+```
 
-* Deployment instructions
+## Running specs
 
-* ...
+```bash
+# Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
+$ bundle exec rspec
+
+# See all options for running specs
+$ bundle exec rspec --help
+```
+
+## Author
+
+João Marcos C. Ferreira - Code and Documentation [Linkedin](https://www.linkedin.com/in/joao-mcf/)
